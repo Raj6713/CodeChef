@@ -22,6 +22,6 @@ class remiss
           	min=guardCount1;
           System.out.printf("%d %d\n",min,guardCount1+guardCount2);
           testCases--;
-		}
+		
 	}
 }
