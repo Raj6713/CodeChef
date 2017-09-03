@@ -26,4 +26,5 @@ class amr15a
 	    	System.out.println("NOT READY");
           
 	}
+	
 }
