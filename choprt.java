@@ -16,15 +16,15 @@ class choprt
          s=in.readLine();
          num1=Integer.parseInt(s.split(" ")[0]);
          num2=Integer.parseInt(s.split(" ")[1]);
-         if(num2!=0)
-        {
+         
+        
          if(num1>num2)
          	System.out.println(">");
          else if(num1<num2)
          	System.out.println("<");
-         else 
+         else if(num1==num2)
          	System.out.println("=");
-         }
+
          testCases--;
 		
 	   }
