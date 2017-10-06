@@ -17,7 +17,7 @@ int main()
 			if(pushValue%7==0)
 				count++;
 		}
-		cout<<count;
+		cout<<count<<"\n";
 	}
 	return 0;
 }
