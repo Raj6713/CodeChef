@@ -1,40 +1,72 @@
-//chef tries to take leap and solve a problem
-//author: raj6713631@gmail.com
 #include<iostream>
 using namespace std;
-#include<cstdlib>
+#include<algorithm>
+#include<vector>
 #include<climits>
-#include<math.h>
 int main()
 {
-	int testCases,dishes;
+	int testCases,dishes,val,size;
+	long int max,sum;
 	cin>>testCases;
 	while(testCases--)
 	{
-
+		
+		max=LONG_MIN;
 		cin>>dishes;
-		int maximum[dishes];
-		int minimum[dishes];
+		vector<int> a[dishes];
+		vector<int>::iterator it;
 		for(int i=0;i<dishes;i++)
 		{
-			int min,max;
-			min=INT_MAX;
-			max=INT_MIN;
-			int t,num;;
-			cin>>t;
-			for(int j=0;j<t;j++)
+			cin>>size;
+			for(int j=0;j<size;j++)
 			{
-               cin>>num;
-               if(num>max) max=num;
-               if(num<min) min=num;
+				cin>>val;
+				a[i].push_back(val);
 			}
-		  maximum[i]=max;
-		  minimum[i]=min;	
 		}
-        long int sum=0;
-       for(int i=1;i<dishes;i++)
-           sum+=(i)*abs(minimum[i-1]-maximum[i]);
-       cout<<sum<<endl;
-	}
+     
 
+       for(int i=0;i<dishes;i++)
+       {
+       	 for(int j=0;j<a[i].size();j++)
+       	 {
+
+           for(int p=0;p<dishes;p++)
+           {
+           	for(it=a[p].begin();it!=a[p].end();it++)
+           		cout<<*it<<" ";
+           	cout<<" | ";
+           }
+           
+       	    
+
+       		sum=0L;
+       		for(int k=1;k<dishes;k++)
+       		{
+       			sum+=k*abs(a[i].front()-a[i-1].back());
+       			cout<<a[i].front()<<"  "<<a[i-1].back()<<" ";
+       		
+       		}
+       			if(sum>max)
+       				max=sum;
+       		cout<<"  "<<sum<<endl;
+
+       		rotate(a[i].begin(),a[i].begin()+1,a[i].end());   
+       	 } 
+       
+       }
+       cout<<max<<endl;
+       a[dishes].clear();
+	}
+     return 0;
 }
+
+
+
+
+
+
+
+
+
+
